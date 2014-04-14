@@ -1,0 +1,50 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files\Java\jdk1.7.0_51\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.7
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3
+-d
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java...
+Constructing Javadoc information...
+Standard Doclet version 1.7.0_51
+Building tree for all the packages and classes...
+Generating C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc\Project3\AbstractCRUD.html...
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java:46: warning - @parameter is an unknown tag.
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java:46: warning - @return tag cannot be used in method with void return type.
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java:69: warning - @parameter is an unknown tag.
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java:77: warning - @parameter is an unknown tag.
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java:30: warning - @parameter is an unknown tag.
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java:53: warning - @parameter is an unknown tag.
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java:53: warning - @reurn is an unknown tag.
+C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\Project3\AbstractCRUD.java:61: warning - @parameter is an unknown tag.
+Generating C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc\Project3\package-frame.html...
+Generating C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc\Project3\package-summary.html...
+Generating C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc\allclasses-frame.html...
+Generating C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc\allclasses-noframe.html...
+Generating C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc\index.html...
+Generating C:\Users\Renaldo\Google Drive\UWI\Computer Science\1161\Project\Project3\doc\stylesheet.css...
+8 warnings

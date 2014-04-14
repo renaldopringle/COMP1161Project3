@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=regNum\ name\ type\ numCustomer\ numEmployee\ assetValue
+comment0.target=Bank(int,\ java.lang.String,\ java.lang.String,\ int,\ int,\ double)
+comment1.params=
+comment1.target=java.lang.String\ toString()
+numComments=2

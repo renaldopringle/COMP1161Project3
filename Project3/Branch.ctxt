@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=branchNum\ location\ contactNum
+comment0.target=Branch(int,\ java.lang.String,\ java.lang.String)
+comment1.params=branch1\ branch2
+comment1.target=boolean\ equals(Branch,\ Branch)
+comment2.params=
+comment2.target=int\ getBranchNum()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.params=fileName
+comment0.target=AbstractCRUD(java.lang.String)
+comment1.params=
+comment1.target=int\ loadDataFile()
+comment1.text=\r\n\ Load\ data\ from\ a\ file\ and\ populate\ list\ if\ records\r\n\ The\ file\ name\ was\ specified\ in\ constructor\r\n\ @parameter\ -\ none\r\n\ @return\ count\ of\ the\ number\ of\ records\ loaded\r\n
+comment2.params=
+comment2.target=int\ saveData()
+comment2.text=\r\n\ Save\ records\ in\ the\ list\ to\ a\ file\r\n\ The\ file\ is\ the\ same\ one\ from\ which\ the\ data\ was\ loaded\r\n\ @return\ count\ of\ the\ number\ of\ records\ saved\r\n
+comment3.params=r
+comment3.target=void\ createRecord(Record)
+comment3.text=\r\n\ Add\ a\ record\ to\ the\ list\ of\ records.\r\n\ @parameter\ r\ the\ record\ to\ be\ added\r\n\ @return\ void\r\n
+comment4.params=key
+comment4.target=Record\ retrieveRecord(java.lang.String)
+comment4.text=\r\n\ Locate\ a\ record\ by\ its\ key\ value\r\n\ @parameter\ key\ key\ value\ of\ the\ record\ to\ be\ retrieved\r\n\ @reurn\ record,\ if\ loccated,\ otherwise\ null\r\n
+comment5.params=r
+comment5.target=boolean\ updateRecord(Record)
+comment5.text=\r\n\ Update\ a\ record\ in\ the\ list\ with\ another\ record\ (based\ on\ key\ value)\r\n\ @parameter\ r\ the\ new\ record\r\n\ @return\ true\ if\ the\ update\ was\ successful,\ false\ otherwise\r\n
+comment6.params=key
+comment6.target=boolean\ deleteRecord(java.lang.String)
+comment6.text=\r\n\ Delete\ the\ record\ with\ the\ specified\ key\ value\r\n\ @parameter\ key\ the\ key\ value\ of\ the\ record\ that\ is\ to\ be\ deleted\r\n\ @return\ true\ if\ the\ record\ is\ deleted,\ false\ otherwise\r\n
+comment7.params=
+comment7.target=java.util.ArrayList\ getAllRecords()
+comment7.text=\r\n\ Get\ a\ list\ of\ all\ records\r\n\ @parameter\ nono\r\n\ @return\ list\ containing\ all\ records\r\n
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

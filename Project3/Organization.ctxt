@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=regNum\ name\ type
+comment0.target=Organization(int,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ @param\ regNum\ organization\ registration\ number\r\n\ @param\ name\ organization\ name\r\n\ @param\ type\ type\ of\ organization\r\n
+comment1.params=branchNum\ location\ contact
+comment1.target=void\ addBranch(int,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ @param\ branchNum\ branch\ number\r\n\ @param\ location\ branch\ location\r\n\ @param\ contact\ branch\ contact\ information\r\n
+comment2.params=org1\ org2
+comment2.target=boolean\ equals(Organization,\ Organization)
+comment2.text=\r\n\ @param\r\n
+comment3.params=
+comment3.target=int\ getRegNum()
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment5.params=
+comment5.target=void\ incCountBank()
+comment6.params=
+comment6.target=void\ incCountSchool()
+comment7.params=org
+comment7.target=int\ compareTo(Organization)
+comment8.params=
+comment8.target=java.lang.String\ getBranches()
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10

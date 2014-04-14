@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=
+comment0.target=java.lang.String\ getKey()
+comment0.text=\r\n\ Get\ the\ key\ value\ of\ a\ record\r\n\ @return\ the\ key\ value\ as\ a\ string\r\n
+numComments=1
