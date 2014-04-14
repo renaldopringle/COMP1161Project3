@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
+PROJECT TITLE: Project 3
+PURPOSE OF PROJECT: COMP1161 PROJECT
+VERSION or DATE: April/14/14
 HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+AUTHORS: Renaldo Pringle, Antonio Fearon
+USER INSTRUCTIONS: 
