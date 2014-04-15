@@ -14,8 +14,8 @@ public class OrgCRUD extends AbstractCRUD
     private int loadcount = 0;
     private int savecount = 0;
     
-    public OrgCRUD () {
-        super("project3.txt");
+    public OrgCRUD (String fileName) {
+        super(fileName);
     }
     
     /**
@@ -67,7 +67,8 @@ public class OrgCRUD extends AbstractCRUD
      */
     public Record retrieveRecord (String key) 
     {
-        Record r = new Record();  //A record consists of an organization and an arraylist of branches
+        OrgCRUD orgC = new OrgCRUD(fileName);
+        Record r = (Record)orgC;  //A record consists of an organization and an arraylist of branches
         
         return r;
     }
