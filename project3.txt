@@ -1,0 +1,23 @@
+#skip records that start with this symbol
+# each line is a record with values that are separated by a vertical bar '|'
+# a line can be either for an organization, or a branch
+# branch data follows each organization
+# the first character is O for organization, B for branch
+# For organization the data are as follow:
+# O|regNum|type(B=Bank, S=School)|name
+# For a branch the data are as follow:
+# B|branchNum|Location|Contact Number
+# Ok. So here is the data
+O|NCB|B|National Commercial Bank
+B|NCB001|National Heroes Circle|955-2312
+B|NCB002|King Street|922-2312
+B|NCB003|New Knigston|977-1810
+B|NCB004|Ocho Rios|975-8688
+O|UWI|S|University of the West Indies
+B|UWI001|Mona|927-2210
+B|UWI002|Montego Bay|997-1800
+O|EXC|S|Execlsior School
+B|EXC001|Mountain View|990-1991
+O|HILA|S|Hillel Academy
+O|NWB|B|National Worker's Bank
+B|NWB001|May Pen|981-2345

@@ -13,6 +13,7 @@ public class OrgCRUD extends AbstractCRUD
 {
     private int loadcount = 0;
     private int savecount = 0;
+    private ArrayList<Organization> organiztion = new ArrayList<Organization>();
     
     public OrgCRUD (String fileName) {
         super(fileName);
@@ -27,11 +28,60 @@ public class OrgCRUD extends AbstractCRUD
     public int loadDataFile () 
     {
         ArrayList<String> words = new ArrayList<String>();
+        String formatrec, rest, regNum, name, type, branchNum, location, contactNum;
+        int index;
+        loadcount = 0;
         try(Scanner input = new Scanner(new File("project3.txt"))) {
             while (input.hasNext()) {
-            words.add(input.nextLine());
+
+                    formatrec = input.nextLine();
+                    formatrec = formatrec.replace("|", " ");
+                    words.add(formatrec);
+                    loadcount++;
+            }
+            for (String word : words) {
+                System.out.println(word);
+            }
+            //create an organization and add it to an array
+            for (String rec : words) {
+                if (rec.substring(0,1).equals("O")) {
+                    index = rec.indexOf(" ");
+                    rest = rec.substring(index);
+                    index = rest.indexOf(" ");
+                    regNum = rest.substring(0,index);
+                    rest = rest.substring(rec.indexOf(" "));
+                    index = rest.indexOf(" ");
+                    type = rest.substring(0,index);
+                    rest = rest.substring(index);
+                    name = rest;
+                    regNum = regNum.replace(" ","");
+                    type = type.replace(" ","");
+                    name = name.replace(" ","");
+                    System.out.println(regNum + " " + type + " " + name);   
+                    if (rec.substring(0,1).equals("S")) {
+                        organization.add(new School(regNum,name,type));
+                    }else{
+                        organization.add(new Bank(regNum,name,type));
+                    }
+                }
+                if (rec.substring(0,1).equals("B")) {
+                    index = rec.indexOf(" ");
+                    rest = rec.substring(index);
+                    index = rest.indexOf(" ");
+                    branchNum = rest.substring(0,index);
+                    rest = rest.substring(rec.indexOf(" "));
+                    index = rest.indexOf(" ");
+                    location = rest.substring(0,index);
+                    rest = rest.substring(index);
+                    contactNum = rest;
+                    branchNum = branchNum.replace(" ","");
+                    location = location.replace(" ","");
+                    contactNum = contactNum.replace(" ","");
+                    System.out.println(branchNum + " " + location + " " + contactNum);
+                }
             }
         }
+        
         catch (Exception e){}
         
         return loadcount;
