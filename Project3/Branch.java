@@ -33,6 +33,6 @@ public class Branch
     }
     
     public String toString() {
-        return ("Branch Number: " + branchNum + "\nLocation: " + location + "\nContact Number: " + contactNum+ "\n");
+        return ("B" + "|" + branchNum + "|" + location + "|" + contactNum);
     }
 }

@@ -20,7 +20,7 @@ public class School extends Organization
     }
     
     public String toString() {
-        return (super.toString() + "\nNumber of Students: " + numStudent + "\nNumber of staff: " + numStaff + getBranches());
+        return (super.toString() + getBranches());
     }
     
     public String getKey(){

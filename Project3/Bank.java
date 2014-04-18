@@ -22,7 +22,7 @@ public class Bank extends Organization
     }
     
     public String toString() {
-        return (super.toString() + "\nNumber of customers: " + numCustomer + "\nNumber of employee: " + numEmployee + "\nAsset value: " + assetValue + getBranches());
+        return (super.toString() + getBranches());
     }
     
     public String getKey(){

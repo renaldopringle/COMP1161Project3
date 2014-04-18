@@ -84,6 +84,6 @@ public abstract class Organization implements Record
     }
     
     public String toString() {
-        return ("Registration Number: " + regNum + "\nName: " + name + "\nType: " + type);
+        return ("O" + "|" + regNum + "|" + type + "|" + name);
     }
 }

@@ -95,6 +95,15 @@ public class OrgCRUD extends AbstractCRUD
      */
     public int saveData () 
     {
+        try{
+            PrintWriter write = new PrintWriter("project3.txt", "UTF-8");
+            for (Organization org : organization) {
+                write.println(org);
+                savecount++;
+            }
+        }
+        catch (Exception e) {}
+        
         return savecount;
     }
     
