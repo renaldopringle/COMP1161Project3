@@ -11,7 +11,7 @@ import java.util.*;
  */
 public abstract class Organization implements Record
 {
-    protected int regNum;
+    protected String regNum;
     protected String name;
     protected String type;
     protected ArrayList<Branch> branchList = new ArrayList<Branch>();
@@ -23,7 +23,7 @@ public abstract class Organization implements Record
      * @param name organization name
      * @param type type of organization
      */
-    public Organization(int regNum, String name, String type) 
+    public Organization(String regNum, String name, String type) 
     {
         this.regNum = regNum;
         this.name = name;
@@ -51,7 +51,7 @@ public abstract class Organization implements Record
         }
     }
     
-    public int getRegNum() {
+    public String getRegNum() {
         return this.regNum;
     }
     
@@ -68,7 +68,7 @@ public abstract class Organization implements Record
     }
     
     public int compareTo(Organization org) {
-        if (this.regNum < org.getRegNum()) {
+        if ((this.regNum.compareTo(org.getRegNum())) == 0) {
             return 1;
         }else{
             return -1;

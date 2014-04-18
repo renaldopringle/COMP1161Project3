@@ -13,7 +13,7 @@ public class Bank extends Organization
     private int numEmployee;
     private double assetValue;
     
-    public Bank(int regNum, String name, String type, int numCustomer, int numEmployee, double assetValue) 
+    public Bank(String regNum, String name, String type) 
     {
         super(regNum,name,type);
         this.numCustomer = numCustomer;
@@ -23,6 +23,10 @@ public class Bank extends Organization
     
     public String toString() {
         return (super.toString() + "\nNumber of customers: " + numCustomer + "\nNumber of employee: " + numEmployee + "\nAsset value: " + assetValue + getBranches());
+    }
+    
+    public String getKey(){
+    	return "-----";
     }
 }
 

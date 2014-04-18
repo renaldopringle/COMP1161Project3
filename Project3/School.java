@@ -12,7 +12,7 @@ public class School extends Organization
     private int numStudent;
     private int numStaff;
     
-    public School(int regNum, String name, String type, int numStudent, int numStaff) 
+    public School(String regNum, String name, String type) 
     {
         super(regNum,name,type);
         this.numStudent = numStudent;
@@ -21,6 +21,10 @@ public class School extends Organization
     
     public String toString() {
         return (super.toString() + "\nNumber of Students: " + numStudent + "\nNumber of staff: " + numStaff + getBranches());
+    }
+    
+    public String getKey(){
+    	return "-----";
     }
 }
 

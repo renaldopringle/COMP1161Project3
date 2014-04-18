@@ -16,11 +16,11 @@ public class Application
         int regNum, num;
         String location, contact;
         
-        Organization bank1 = new Bank(1001,"The First Bank","Private",100,25,250000);
-        Organization bank2 = new Bank(1002,"The National Bank","Public",500000,3500,960000000);
-        Organization school1 = new School(1003,"The First School","Public",1500,100);
-        Organization school2 = new School(1004,"The National School","Private", 300,20);
-        Organization school3 = new School(1005,"Home School","Private",25,5);
+        Organization bank1 = new Bank("1001","The First Bank","B");
+        Organization bank2 = new Bank("1002","The National Bank","B");
+        Organization school1 = new School("1003","The First School","S");
+        Organization school2 = new School("1004","The National School","S");
+        Organization school3 = new School("1005","Home School","S");
         
         organization[0] = bank1;
         organization[1] = bank2;

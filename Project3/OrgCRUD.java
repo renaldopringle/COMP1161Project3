@@ -13,7 +13,7 @@ public class OrgCRUD extends AbstractCRUD
 {
     private int loadcount = 0;
     private int savecount = 0;
-    private ArrayList<Organization> organiztion = new ArrayList<Organization>();
+    private ArrayList<Organization> organization = new ArrayList<Organization>();
     
     public OrgCRUD (String fileName) {
         super(fileName);
@@ -33,7 +33,7 @@ public class OrgCRUD extends AbstractCRUD
         loadcount = 0;
         try(Scanner input = new Scanner(new File("project3.txt"))) {
             while (input.hasNext()) {
-
+                    //Should include an if statement to filter the comments in the file "project3.txt"
                     formatrec = input.nextLine();
                     formatrec = formatrec.replace("|", " ");
                     words.add(formatrec);
