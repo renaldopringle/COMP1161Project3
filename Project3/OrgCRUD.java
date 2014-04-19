@@ -2,6 +2,7 @@ package Project3;
 
 import java.util.*;
 import java.io.*;
+import javax.swing.*;
 
 /**
  * Write a description of class OrgCRUD here.
@@ -21,25 +22,22 @@ public class OrgCRUD extends AbstractCRUD
     
     /**
      * 
-     * @param
-     * @return
+     * @param recType This is the type of record O - Organization, B - Branch
+     * @param num registration number of the organization or branch number of a brach
+     * @return void
      */
-    public void Record (String recType, String regNum, String type, String name) 
+    public void Record (String recType, String num, String two, String three) 
     {
-        System.out.println("Is this record a branch (y/n)?");
-        Scanner scan = new Scanner(System.in);
-        String opt,orgRegNum;
-        opt = scan.next();
-        if (opt.equals("n")) {
+        if (recType.equals("O")) {
+            String type = JOptionPane.showInputDialog("Enter type of Organization");
             if (type.equals("S")) {
-                organization.add(new School(regNum,type,name));
+                    organization.add(new School(num,two,three));
             }else if (type.equals("B")) {
-                organization.add(new Bank(regNum,type,name));
+                    organization.add(new Bank(num,two,three));
             }
         }else{
-            System.out.print("Enter the registration number of the organization to add branch: ");
-            orgRegNum = scan.next();
-            retrieveRecord().addBranch(regNum,location,contact);
+            
+            //retrieveRecord().addBranch(num,two,three);
         }
     }
     
@@ -55,7 +53,7 @@ public class OrgCRUD extends AbstractCRUD
         String formatrec, rest, regNum, name, type, branchNum, location, contactNum;
         int index;
         loadcount = 0;
-        try(Scanner input = new Scanner(new File("project3.txt"))) {
+        try(Scanner input = new Scanner(new File(fileName))) {
             while (input.hasNext()) {
                     //Should include an if statement to filter the comments in the file "project3.txt"
                     formatrec = input.nextLine();
@@ -120,7 +118,7 @@ public class OrgCRUD extends AbstractCRUD
     public int saveData () 
     {
         try{
-            PrintWriter write = new PrintWriter("project3.txt", "UTF-8");
+            PrintWriter write = new PrintWriter(fileName, "UTF-8");
             for (Organization org : organization) {
                 write.println(org);
                 savecount++;
@@ -151,7 +149,7 @@ public class OrgCRUD extends AbstractCRUD
     public Record retrieveRecord (String key) 
     {
         OrgCRUD orgC = new OrgCRUD(fileName);
-        Record r = (Record)orgC;  //A record consists of an organization and an arraylist of branches
+        Record r = (Record)orgC;
         
         return r;
     }

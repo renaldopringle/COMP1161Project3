@@ -63,8 +63,12 @@ public class GUI extends JPanel
         public void actionPerformed (ActionEvent event) 
         {
             //if organization is selected then show all branches for this.
-            
-            
+            //This will be done using a for each loop
+            /*for (Organization org : organization) {
+                if (event.getSource == org) {
+                    setText(org.getBranches());
+                }
+            }*/
         }
     }
     
@@ -72,11 +76,18 @@ public class GUI extends JPanel
     {
         public void actionPerformed (ActionEvent event)
         {
+            /*
             //If edit button is clicked overide existing data and allow the user to create new record.
-            
+            if (event.getSource == edit) {
+                deleteRecord();
             //If create button is clicked provide the user with necessary text fields
-            
+            }else if (event.getSource == create) {
+                createRecord();
             //If delete button is clicked delete record from file
+            }else if (event.getSource == delete) {
+                deleteRecord();
+            }*/
         }
     }
 }
+
