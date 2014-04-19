@@ -20,6 +20,30 @@ public class OrgCRUD extends AbstractCRUD
     }
     
     /**
+     * 
+     * @param
+     * @return
+     */
+    public void Record (String recType, String regNum, String type, String name) 
+    {
+        System.out.println("Is this record a branch (y/n)?");
+        Scanner scan = new Scanner(System.in);
+        String opt,orgRegNum;
+        opt = scan.next();
+        if (opt.equals("n")) {
+            if (type.equals("S")) {
+                organization.add(new School(regNum,type,name));
+            }else if (type.equals("B")) {
+                organization.add(new Bank(regNum,type,name));
+            }
+        }else{
+            System.out.print("Enter the registration number of the organization to add branch: ");
+            orgRegNum = scan.next();
+            retrieveRecord().addBranch(regNum,location,contact);
+        }
+    }
+    
+    /**
      * Load data from a file and populate list if records
      * The file name was specified in constructor
      * @parameter - none

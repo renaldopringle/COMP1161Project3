@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.params=regNum\ name\ type
+comment0.params=regNum\ type\ name
 comment0.target=Organization(java.lang.String,\ java.lang.String,\ java.lang.String)
 comment0.text=\r\n\ @param\ regNum\ organization\ registration\ number\r\n\ @param\ name\ organization\ name\r\n\ @param\ type\ type\ of\ organization\r\n
 comment1.params=branchNum\ location\ contact

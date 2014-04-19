@@ -23,7 +23,7 @@ public abstract class Organization implements Record
      * @param name organization name
      * @param type type of organization
      */
-    public Organization(String regNum, String name, String type) 
+    public Organization(String regNum, String type, String name) 
     {
         this.regNum = regNum;
         this.name = name;
