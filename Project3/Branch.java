@@ -35,4 +35,8 @@ public class Branch
     public String toString() {
         return ("B" + "|" + branchNum + "|" + location + "|" + contactNum);
     }
+    
+    public String getKey() {
+        return this.branchNum;
+    }
 }

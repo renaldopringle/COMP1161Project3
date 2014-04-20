@@ -12,6 +12,10 @@ import javax.swing.*;
  */
 public class OrgCRUD extends AbstractCRUD
 {
+    private String recType;
+    private String num;
+    private String two;
+    private String three;
     private int loadcount = 0;
     private int savecount = 0;
     private ArrayList<Organization> organization = new ArrayList<Organization>();
@@ -24,22 +28,28 @@ public class OrgCRUD extends AbstractCRUD
     /**
      * 
      * @param recType This is the type of record O - Organization, B - Branch
-     * @param num registration number of the organization or branch number of a brach
+     * @param num Registration number of the organization or branch number of a brach
+     * @param two This is either the location of a branch or the type of an organization
      * @return void
      */
     public void Record (String recType, String num, String two, String three) 
     {
-        if (recType.equals("O")) {
-            String type = JOptionPane.showInputDialog("Enter type of Organization");
-            if (type.equals("S")) {
+        /*if (recType.equals("O")) {
+            if (two.equals("S")) {
                     organization.add(new School(num,two,three));
-            }else if (type.equals("B")) {
+            }else if (two.equals("B")) {
                     organization.add(new Bank(num,two,three));
             }
         }else{
             
             //retrieveRecord().addBranch(num,two,three);
-        }
+        }*/
+        //code above creates a new organization and adds it to the organization arrayList
+        //code is supposed to create a new record
+        this.recType = recType;
+        this.num = num;
+        this.two = two;
+        this.three = three;
     }
     
     /**
@@ -50,7 +60,7 @@ public class OrgCRUD extends AbstractCRUD
      */
     public int loadDataFile () 
     {
-        ArrayList<String> words = new ArrayList<String>();
+        ArrayList<String> records = new ArrayList<String>();
         String formatrec, rest, regNum, name, type, branchNum, location, contactNum;
         int index;
         loadcount = 0;
@@ -60,14 +70,16 @@ public class OrgCRUD extends AbstractCRUD
                     //Should include an if statement to filter the comments in the file "project3.txt"
                     formatrec = input.nextLine();
                     formatrec = formatrec.replace("|", " ");
-                    words.add(formatrec);
+                    records.add(formatrec);
                     loadcount++;
             }
-            for (String word : words) {
-                System.out.println(word);
+            /* print all items in file
+            for (String rec : records) {
+                System.out.println(rec);
             }
+            */
             //create an organization and add it to an array
-            for (String rec : words) {
+            for (String rec : records) {
                 if (rec.substring(0,1).equals("O")) {
                     orgCount++;
                     index = rec.indexOf(" ");
@@ -82,7 +94,7 @@ public class OrgCRUD extends AbstractCRUD
                     regNum = regNum.replace(" ","");
                     type = type.replace(" ","");
                     name = name.replace(" ","");
-                    System.out.println(regNum + " " + type + " " + name);   
+                    //System.out.println(regNum + " " + type + " " + name);   
                     if (rec.substring(0,1).equals("S")) {
                         organization.add(new School(regNum,name,type));
                     }else{
@@ -103,7 +115,7 @@ public class OrgCRUD extends AbstractCRUD
                     location = location.replace(" ","");
                     contactNum = contactNum.replace(" ","");
                     organization.get(orgCount-1).addBranch(branchNum,location,contactNum);
-                    System.out.println(branchNum + " " + location + " " + contactNum);
+                    //System.out.println(branchNum + " " + location + " " + contactNum);
                 }
             }
         }
@@ -141,7 +153,7 @@ public class OrgCRUD extends AbstractCRUD
      */
     public void createRecord (Record r) 
     {
-        
+        listOfRecords.add(r);
     }
     
     
@@ -152,10 +164,12 @@ public class OrgCRUD extends AbstractCRUD
      */
     public Record retrieveRecord (String key) 
     {
-        OrgCRUD orgC = new OrgCRUD(fileName);
-        Record r = (Record)orgC;
-        
-        return r;
+        for (Record rec : listOfRecords) {
+            if (rec.getKey().equals(key)) {
+                return rec;
+            }
+        }
+        return null;
     }
     
     
@@ -166,6 +180,39 @@ public class OrgCRUD extends AbstractCRUD
      */
     public boolean updateRecord (Record r) 
     {
+        //Find the record by using the key and replace it in the file
+        /*The code reads each line of a file. 
+        //If that line doesn't contain the name, The line will be written to a temporary file. 
+        //If the line contains the name, it will not be written to temp file. 
+        //In the end the temp file is renamed to the original file.*/
+        try {
+            File inputFile = new File(fileName);   // Your file  
+            File tempFile = new File("TempFile.txt");// temp file
+            
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter firstName");
+            String firstName = scanner.nextLine();
+            System.out.println("Enter lastName");
+            String lastName = scanner.nextLine();
+            
+            String currentLine;
+            
+            while((currentLine = reader.readLine()) != null) {
+            
+                if(currentLine.contains(firstName) 
+                     && currentLine.contains(lastName)) continue;
+            
+                writer.write(currentLine);
+            }
+            
+            writer.close();
+            boolean successful = tempFile.renameTo(inputFile);
+        }
+        catch (Exception e){}
+                
         return true;
     }
     
@@ -177,9 +224,9 @@ public class OrgCRUD extends AbstractCRUD
      */
     public boolean deleteRecord (String key) 
     {
-        for (Organization org : organization) {
-            if (key.equals(org.getRegNum())) {
-                organization.remove(org);
+        for (Record rec : listOfRecords) {
+            if (rec.getKey().equals(key)) {
+                listOfRecords.remove(rec);
                 return true;
             }
         }

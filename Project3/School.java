@@ -31,7 +31,7 @@ public class School extends Organization
     }
     
     public String getKey(){
-        return "-----";
+        return this.regNum;
     }
 }
 
