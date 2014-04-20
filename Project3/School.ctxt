@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.params=regNum\ name\ type
 comment0.target=School(java.lang.String,\ java.lang.String,\ java.lang.String)
-comment1.params=
-comment1.target=java.lang.String\ toString()
+comment1.params=regNum\ name\ type\ numStudent\ numStaff
+comment1.target=School(java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int)
 comment2.params=
-comment2.target=java.lang.String\ getKey()
-numComments=3
+comment2.target=java.lang.String\ toString()
+comment3.params=
+comment3.target=java.lang.String\ getKey()
+numComments=4

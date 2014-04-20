@@ -15,6 +15,7 @@ public class OrgCRUD extends AbstractCRUD
     private int loadcount = 0;
     private int savecount = 0;
     private ArrayList<Organization> organization = new ArrayList<Organization>();
+    private int orgCount;
     
     public OrgCRUD (String fileName) {
         super(fileName);
@@ -53,6 +54,7 @@ public class OrgCRUD extends AbstractCRUD
         String formatrec, rest, regNum, name, type, branchNum, location, contactNum;
         int index;
         loadcount = 0;
+        orgCount = 0;
         try(Scanner input = new Scanner(new File(fileName))) {
             while (input.hasNext()) {
                     //Should include an if statement to filter the comments in the file "project3.txt"
@@ -67,6 +69,7 @@ public class OrgCRUD extends AbstractCRUD
             //create an organization and add it to an array
             for (String rec : words) {
                 if (rec.substring(0,1).equals("O")) {
+                    orgCount++;
                     index = rec.indexOf(" ");
                     rest = rec.substring(index);
                     index = rest.indexOf(" ");
@@ -99,6 +102,7 @@ public class OrgCRUD extends AbstractCRUD
                     branchNum = branchNum.replace(" ","");
                     location = location.replace(" ","");
                     contactNum = contactNum.replace(" ","");
+                    organization.get(orgCount-1).addBranch(branchNum,location,contactNum);
                     System.out.println(branchNum + " " + location + " " + contactNum);
                 }
             }

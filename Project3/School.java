@@ -19,6 +19,13 @@ public class School extends Organization
         this.numStaff = numStaff;
     }
     
+    public School(String regNum, String name, String type, int numStudent, int numStaff) 
+    {
+        super(regNum,name,type);
+        this.numStudent = numStudent;
+        this.numStaff = numStaff;
+    }
+    
     public String toString() {
         return (super.toString() + getBranches());
     }

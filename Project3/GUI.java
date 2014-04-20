@@ -19,6 +19,7 @@ public class GUI extends JPanel
     
     public GUI (AbstractCRUD abc) 
     {
+        int load = abc.loadDataFile();
         //Universal panel
         JPanel formPanel = new JPanel();
         
@@ -28,8 +29,9 @@ public class GUI extends JPanel
         //Read from file using a while loop; determine if a record is an organzization
         //store each record as a string removing spaces.
         //Add the organization string to a radio button and add it to the main area panel
-        
-        
+        for (Record r : abc.getAllRecords()) {
+            //JLabel l = new JLabel(r);
+        }
         
         /*A second area in which all branches for a selected organization will be displayed.
         //This area should be automatically updated as you scroll through the listing of organizations.*/

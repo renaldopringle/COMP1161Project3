@@ -9,11 +9,11 @@ package Project3;
  */
 public class Branch
 {
-    private int branchNum;
+    private String branchNum;
     private String location;
     private String contactNum;
     
-    public Branch(int branchNum, String location, String contactNum) 
+    public Branch(String branchNum, String location, String contactNum) 
     {
         this.branchNum = branchNum;
         this.location = location;
@@ -28,7 +28,7 @@ public class Branch
         }
     }
     
-    public int getBranchNum() {
+    public String getBranchNum() {
         return this.branchNum;
     }
     

@@ -35,7 +35,7 @@ public abstract class Organization implements Record
      * @param location branch location
      * @param contact branch contact information
      */
-    public void addBranch(int branchNum, String location, String contact) {
+    public void addBranch(String branchNum, String location, String contact) {
         Branch branch = new Branch(branchNum,location,contact);
         branchList.add(branch);
     }

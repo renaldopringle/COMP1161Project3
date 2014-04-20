@@ -21,6 +21,14 @@ public class Bank extends Organization
         this.assetValue = assetValue;
     }
     
+    public Bank(String regNum, String name, String type, int numCustomer, int numEmployee, double assetValue) 
+    {
+        super(regNum,name,type);
+        this.numCustomer = numCustomer;
+        this.numEmployee = numEmployee;
+        this.assetValue = assetValue;
+    }
+    
     public String toString() {
         return (super.toString() + getBranches());
     }
