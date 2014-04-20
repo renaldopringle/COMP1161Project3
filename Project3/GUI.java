@@ -12,9 +12,9 @@ import javax.swing.*;
  */
 public class GUI extends JPanel
 {
-    private JTextField recTypeField, regNumField, nameField, typeField, branchNumField, locationField, contactField;
-    private JLabel label;
-    private JButton create, edit, delete;
+    protected JTextField recTypeField, numField, typeORlocationField, nameORcontactNumField;
+    protected JLabel label, recTypeLabel, numLabel, typeORlocationLabel, nameORcontactNumLabel;
+    protected JButton create, edit, delete;
     //private JPanel mainarea, secondarea, thirdarea, formpanel;
     
     public GUI (AbstractCRUD abc) 
@@ -51,24 +51,36 @@ public class GUI extends JPanel
         JPanel editarea = new JPanel();
         
         recTypeField = new JTextField(20);
-        regNumField = new JTextField(20);
-        nameField = new JTextField(20);
-        typeField = new JTextField(20);
-        branchNumField = new JTextField(20);
-        locationField = new JTextField(20);
-        contactField = new JTextField(20);
+        numField = new JTextField(20);
+        typeORlocationField = new JTextField(20);
+        nameORcontactNumField = new JTextField(20);
         
+        recTypeLabel = new JLabel("Record Type: ");
+        numLabel = new JLabel("Registration number/ Branch number: ");
+        typeORlocationLabel = new JLabel("Type/ Location: ");
+        nameORcontactNumLabel = new JLabel("Name/ Contact number: ");
         create = new JButton("create");
         edit = new JButton("edit");
         delete = new JButton("delete");
         
+        editarea.add(recTypeLabel);
         editarea.add(recTypeField);
-        editarea.add(regNumField);
-        editarea.add(nameField);
-        editarea.add(typeField);
-        editarea.add(contactField);
-        //editarea.add();
-        editarea.setLayout(new GridLayout(0,1));
+        editarea.add(numLabel);
+        editarea.add(numField);
+        editarea.add(typeORlocationLabel);
+        editarea.add(typeORlocationField);
+        editarea.add(nameORcontactNumLabel);
+        editarea.add(nameORcontactNumField);
+        
+        editarea.add(create);
+        editarea.add(edit);
+        editarea.add(delete);
+        ProviderListener al = new ProviderListener();
+        create.addActionListener(al);
+        edit.addActionListener(al);
+        delete.addActionListener(al);
+        
+        editarea.setLayout(new GridLayout(0,2));
         
         
         formPanel.add(mainarea);
@@ -95,17 +107,20 @@ public class GUI extends JPanel
     {
         public void actionPerformed (ActionEvent event)
         {
-            /*
+            
             //If edit button is clicked overide existing data and allow the user to create new record.
-            if (event.getSource == edit) {
-                deleteRecord();
+            if (event.getSource() == edit) {
+                recTypeLabel.setText("EDIT!!!");
+                //deleteRecord();
             //If create button is clicked provide the user with necessary text fields
-            }else if (event.getSource == create) {
-                createRecord();
+            }else if (event.getSource() == create) {
+                recTypeLabel.setText("EDIT!!!");
+                //createRecord();
             //If delete button is clicked delete record from file
-            }else if (event.getSource == delete) {
-                deleteRecord();
-            }*/
+            }else if (event.getSource() == delete) {
+                recTypeLabel.setText("EDIT!!!");
+                //eleteRecord();
+            }
         }
     }
 }
