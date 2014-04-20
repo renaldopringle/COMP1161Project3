@@ -173,8 +173,12 @@ public class OrgCRUD extends AbstractCRUD
      */
     public boolean deleteRecord (String key) 
     {
-        return true;
+        for (Organization org : organization) {
+            if (key.equals(org.getRegNum())) {
+                organization.remove(org);
+                return true;
+            }
+        }
+        return false;
     }
-    
-    
 }
