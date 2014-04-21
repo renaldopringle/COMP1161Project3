@@ -10,11 +10,14 @@ package Project3;
 
 import java.util.ArrayList;
 
-public abstract class AbstractCRUD
+public abstract class AbstractCRUD 
 {
     protected String fileName;                    // file from which data is to be loaded
     protected ArrayList<Record> listOfRecords;   // the collection of records
-    
+    private String recType;
+    private String num;
+    private String typeORlocation;
+    private String nameORcontact;
     
     public AbstractCRUD(String fileName)
     {
@@ -84,5 +87,7 @@ public abstract class AbstractCRUD
     {
         return "Number of records: " + listOfRecords.size();
     }
+    
+    
     
 }

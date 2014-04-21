@@ -14,8 +14,8 @@ public class OrgCRUD extends AbstractCRUD
 {
     private String recType;
     private String num;
-    private String two;
-    private String three;
+    private String typeORlocation;
+    private String nameORcontact;
     private int loadcount = 0;
     private int savecount = 0;
     private ArrayList<Organization> organization = new ArrayList<Organization>();
@@ -29,10 +29,11 @@ public class OrgCRUD extends AbstractCRUD
      * 
      * @param recType This is the type of record O - Organization, B - Branch
      * @param num Registration number of the organization or branch number of a brach
-     * @param two This is either the location of a branch or the type of an organization
+     * @param typeORlocation This is either the location of a branch or the type of an organization
+     * @param nameORcontact This is either the name of an organization or the contact number of a branch
      * @return void
      */
-    public void Record (String recType, String num, String two, String three) 
+    public void Record (String recType, String num, String typeORlocation, String nameORcontact) 
     {
         /*if (recType.equals("O")) {
             if (two.equals("S")) {
@@ -48,8 +49,8 @@ public class OrgCRUD extends AbstractCRUD
         //code is supposed to create a new record
         this.recType = recType;
         this.num = num;
-        this.two = two;
-        this.three = three;
+        this.typeORlocation = typeORlocation;
+        this.nameORcontact = nameORcontact;
     }
     
     /**
@@ -73,11 +74,6 @@ public class OrgCRUD extends AbstractCRUD
                     records.add(formatrec);
                     loadcount++;
             }
-            /* print all items in file
-            for (String rec : records) {
-                System.out.println(rec);
-            }
-            */
             //create an organization and add it to an array
             for (String rec : records) {
                 if (rec.substring(0,1).equals("O")) {
@@ -94,14 +90,16 @@ public class OrgCRUD extends AbstractCRUD
                     regNum = regNum.replace(" ","");
                     type = type.replace(" ","");
                     name = name.replace(" ","");
-                    //System.out.println(regNum + " " + type + " " + name);   
+                    //System.out.println(regNum + " " + type + " " + name);
+                    //listOfRecords.add(new Record("O",regNum,type,name));
                     if (rec.substring(0,1).equals("S")) {
                         organization.add(new School(regNum,name,type));
+                        listOfRecords.add(new School(regNum,name,type));
                     }else{
                         organization.add(new Bank(regNum,name,type));
+                        listOfRecords.add(new Bank(regNum,name,type));
                     }
-                }
-                if (rec.substring(0,1).equals("B")) {
+                }else if (rec.substring(0,1).equals("B")) {
                     index = rec.indexOf(" ");
                     rest = rec.substring(index);
                     index = rest.indexOf(" ");
@@ -115,6 +113,7 @@ public class OrgCRUD extends AbstractCRUD
                     location = location.replace(" ","");
                     contactNum = contactNum.replace(" ","");
                     organization.get(orgCount-1).addBranch(branchNum,location,contactNum);
+                    //listOfRecords.add(new Branch(branchNum,location,contactNum));
                     //System.out.println(branchNum + " " + location + " " + contactNum);
                 }
             }
@@ -135,8 +134,8 @@ public class OrgCRUD extends AbstractCRUD
     {
         try{
             PrintWriter write = new PrintWriter(fileName, "UTF-8");
-            for (Organization org : organization) {
-                write.println(org);
+            for (Record rec : listOfRecords) {
+                write.println(rec);
                 savecount++;
             }
         }
@@ -180,40 +179,14 @@ public class OrgCRUD extends AbstractCRUD
      */
     public boolean updateRecord (Record r) 
     {
-        //Find the record by using the key and replace it in the file
-        /*The code reads each line of a file. 
-        //If that line doesn't contain the name, The line will be written to a temporary file. 
-        //If the line contains the name, it will not be written to temp file. 
-        //In the end the temp file is renamed to the original file.*/
-        try {
-            File inputFile = new File(fileName);   // Your file  
-            File tempFile = new File("TempFile.txt");// temp file
-            
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter firstName");
-            String firstName = scanner.nextLine();
-            System.out.println("Enter lastName");
-            String lastName = scanner.nextLine();
-            
-            String currentLine;
-            
-            while((currentLine = reader.readLine()) != null) {
-            
-                if(currentLine.contains(firstName) 
-                     && currentLine.contains(lastName)) continue;
-            
-                writer.write(currentLine);
+        for (Record rec : listOfRecords) {
+            if (rec.getKey().equals(r.getKey())) {
+                rec = r;
+                return true;
             }
-            
-            writer.close();
-            boolean successful = tempFile.renameTo(inputFile);
         }
-        catch (Exception e){}
                 
-        return true;
+        return false;
     }
     
     
@@ -232,4 +205,5 @@ public class OrgCRUD extends AbstractCRUD
         }
         return false;
     }
+    
 }

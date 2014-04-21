@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.params=fileName
 comment0.target=OrgCRUD(java.lang.String)
-comment1.params=recType\ num\ two\ three
+comment1.params=recType\ num\ typeORlocation\ nameORcontact
 comment1.target=void\ Record(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
-comment1.text=\r\n\ \r\n\ @param\ recType\ This\ is\ the\ type\ of\ record\ O\ -\ Organization,\ B\ -\ Branch\r\n\ @param\ num\ Registration\ number\ of\ the\ organization\ or\ branch\ number\ of\ a\ brach\r\n\ @param\ two\ This\ is\ either\ the\ location\ of\ a\ branch\ or\ the\ type\ of\ an\ organization\r\n\ @return\ void\r\n
+comment1.text=\r\n\ \r\n\ @param\ recType\ This\ is\ the\ type\ of\ record\ O\ -\ Organization,\ B\ -\ Branch\r\n\ @param\ num\ Registration\ number\ of\ the\ organization\ or\ branch\ number\ of\ a\ brach\r\n\ @param\ typeORlocation\ This\ is\ either\ the\ location\ of\ a\ branch\ or\ the\ type\ of\ an\ organization\r\n\ @param\ nameORcontact\ This\ is\ either\ the\ name\ of\ an\ organization\ or\ the\ contact\ number\ of\ a\ branch\r\n\ @return\ void\r\n
 comment2.params=
 comment2.target=int\ loadDataFile()
 comment2.text=\r\n\ Load\ data\ from\ a\ file\ and\ populate\ list\ if\ records\r\n\ The\ file\ name\ was\ specified\ in\ constructor\r\n\ @parameter\ -\ none\r\n\ @return\ count\ of\ the\ number\ of\ records\ loaded\r\n

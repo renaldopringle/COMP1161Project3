@@ -17,6 +17,7 @@ public abstract class Organization implements Record
     protected ArrayList<Branch> branchList = new ArrayList<Branch>();
     protected int countBank;
     protected int countSchool;
+    //protected String recType, num, typeORlocation, nameORcontact;
     
     /**
      * @param regNum organization registration number
@@ -29,6 +30,7 @@ public abstract class Organization implements Record
         this.name = name;
         this.type = type;
     }
+    
     
     /**
      * @param branchNum branch number

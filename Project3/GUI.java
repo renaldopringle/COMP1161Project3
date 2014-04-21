@@ -10,11 +10,12 @@ import javax.swing.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GUI extends JPanel
+public class GUI extends JPanel 
 {
-    protected JTextField recTypeField, numField, typeORlocationField, nameORcontactNumField;
-    protected JLabel label, recTypeLabel, numLabel, typeORlocationLabel, nameORcontactNumLabel;
-    protected JButton create, edit, delete;
+    protected JTextField recTypeField, numField, typeORlocationField, nameORcontactField;
+    protected JLabel label, recTypeLabel, numLabel, typeORlocationLabel, nameORcontactLabel;
+    protected JButton create, edit, delete, saveFile;
+    protected String recType, num, typeORlocation, nameORcontact;
     //private JPanel mainarea, secondarea, thirdarea, formpanel;
     
     public GUI (AbstractCRUD abc) 
@@ -30,10 +31,10 @@ public class GUI extends JPanel
         //Read from file using a while loop; determine if a record is an organzization
         //store each record as a string removing spaces.
         //Add the organization string to a radio button and add it to the main area panel
-        /*for (Record r : abc.getAllRecords()) {
+        //for (Record r : abc.getAllRecords()) {
             //JRadioButton l = new JRadioButton(r);
-            //mainarea.add(l);
-        }*/
+            //mainarea.add(new JRadioButton(r));
+        //}
         
         /*A second area in which all branches for a selected organization will be displayed.
         //This area should be automatically updated as you scroll through the listing of organizations.*/
@@ -53,15 +54,22 @@ public class GUI extends JPanel
         recTypeField = new JTextField(20);
         numField = new JTextField(20);
         typeORlocationField = new JTextField(20);
-        nameORcontactNumField = new JTextField(20);
+        nameORcontactField = new JTextField(20);
+        //ActionListener jtfal = new ActionListener();
+        //recTypeField.addActionListener(jtfal);
+        //numField.addActionListener(jtfal);
+        //typeORlocationField.addActionListener(jtfal);
+        //nameORcontactNumField.addActionListener(jtfal);
         
         recTypeLabel = new JLabel("Record Type: ");
         numLabel = new JLabel("Registration number/ Branch number: ");
         typeORlocationLabel = new JLabel("Type/ Location: ");
-        nameORcontactNumLabel = new JLabel("Name/ Contact number: ");
+        nameORcontactLabel = new JLabel("Name/ Contact number: ");
+        
         create = new JButton("create");
         edit = new JButton("edit");
         delete = new JButton("delete");
+        saveFile = new JButton("save file");
         
         editarea.add(recTypeLabel);
         editarea.add(recTypeField);
@@ -69,16 +77,18 @@ public class GUI extends JPanel
         editarea.add(numField);
         editarea.add(typeORlocationLabel);
         editarea.add(typeORlocationField);
-        editarea.add(nameORcontactNumLabel);
-        editarea.add(nameORcontactNumField);
+        editarea.add(nameORcontactLabel);
+        editarea.add(nameORcontactField);
         
         editarea.add(create);
         editarea.add(edit);
         editarea.add(delete);
+        editarea.add(saveFile);
         ProviderListener al = new ProviderListener();
         create.addActionListener(al);
         edit.addActionListener(al);
         delete.addActionListener(al);
+        saveFile.addActionListener(al);
         
         editarea.setLayout(new GridLayout(0,2));
         
@@ -88,6 +98,8 @@ public class GUI extends JPanel
         formPanel.add(editarea);
         add(formPanel);
     }
+    
+        
     
     private class AreaListener implements ActionListener 
     {
@@ -107,20 +119,39 @@ public class GUI extends JPanel
     {
         public void actionPerformed (ActionEvent event)
         {
-            
+            AbstractCRUD ab = new OrgCRUD("project3.txt");
             //If edit button is clicked overide existing data and allow the user to create new record.
             if (event.getSource() == edit) {
-                recTypeLabel.setText("EDIT!!!");
-                //deleteRecord();
+                recType = recTypeField.getText();
+                num = numField.getText();
+                typeORlocation = typeORlocationField.getText();
+                nameORcontact  = nameORcontactField.getText();
+                if (recType.equals("O")) {
+                    if (typeORlocation.equals("S")) {
+                        ab.updateRecord(new School(num,typeORlocation,nameORcontact));
+                    }else if (typeORlocation.equals("B")) {
+                        ab.updateRecord(new Bank(num,typeORlocation,nameORcontact));
+                    }
+                }else if (recType.equals("B")) {
+                    //ab.updateRecord(new Branch(num,typeORlocation,nameORcontact));
+                }
             //If create button is clicked provide the user with necessary text fields
             }else if (event.getSource() == create) {
-                recTypeLabel.setText("EDIT!!!");
+                num = numField.getText();
+                typeORlocation = typeORlocationField.getText();
+                nameORcontact  = nameORcontactField.getText();
                 //createRecord();
+                ab.createRecord(new School(num,typeORlocation,nameORcontact));
+                //Update show all records label
             //If delete button is clicked delete record from file
             }else if (event.getSource() == delete) {
-                recTypeLabel.setText("EDIT!!!");
-                //eleteRecord();
-            }
+                num = numField.getText();
+                typeORlocation = typeORlocationField.getText();
+                nameORcontact  = nameORcontactField.getText();
+                ab.deleteRecord(num);
+            }else if (event.getSource() == saveFile) {
+                ab.saveData();
+            }         
         }
     }
 }

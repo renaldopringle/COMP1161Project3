@@ -7,7 +7,7 @@ package Project3;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Branch
+public class Branch 
 {
     private String branchNum;
     private String location;
